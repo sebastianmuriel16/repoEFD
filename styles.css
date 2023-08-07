@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    font-family: 'Roboto', sans-serif;
 }
 
 .contenedor-Padre{
@@ -21,12 +21,12 @@
     width: 200px;
     padding: 8px;
     font-family: 'Roboto', sans-serif;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;    
 }
 
 .photoEnfermedadMinimal{
+    position: relative;
     width: 100%;
-    object-fit: cover;
 }
 
 .photoEnfermedadMinimal img{
@@ -37,37 +37,10 @@
     margin-top: 5px;
 }
 
-
-.btnClose{
-    position: absolute;
-    display: none;
-    top: 12px; 
-    left: 6px; 
-    padding: 5px;
-    width: 40px;
-    height: 40px;
-    background-color: #000;  
-    opacity: .5;
-    color: #fff;
-    border: none;
-    z-index: 1;
-}
-.invisible{
-    display: none;
-    padding: 0px 12px 6px 12px;
-}
-.invisible h2{
-    font-size: 16px;
-    padding: 0px;
-}
-
-.invisible a{
-    color: #016DD9;
-}
-
-.contenedor-btn{
+.contenedorBtn{
     display: flex;
     justify-content: center;
+    margin: 4px 0 4px 0;
 }
 
 
@@ -97,13 +70,30 @@
 .tarjetaDetalle{
     margin: 8px 4px 4px 4px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
 
 }
 
 .imagenDetalle{
     width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.btnClose{
+    position: absolute;
+    top: 8px; 
+    right: 5px; 
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;  
+    opacity: .5;
+    color: #fff;
+    border: none;
+    border-radius:  0px 12px 0px 0px;
+    z-index: 1;
 }
 
 .imagenDetalle img{
@@ -115,7 +105,7 @@
     padding: 0 0 0 12px;
 }
 
-.definicion-expandir{
+.definicionDetalle{
     margin-top: 4px;
     display: flex;
     flex-direction: column;
@@ -124,7 +114,18 @@
     width: 100%;
 }
 
-.definicion-expandir a{
-    margin: 4px 0 4px 0;
+.sintomas{
+    display: none;
+    margin-top: 4px;
+    padding: 0px 12px 6px 12px;
+    width: 100%;
 }
 
+.sintomas h2{
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.sintomas a{
+    color: #016DD9;
+}

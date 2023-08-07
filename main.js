@@ -1,7 +1,7 @@
 import { getEnfermedades } from "./firebase.js";
 
 const contenedorPadre = document.querySelector('.contenedor-Padre')
-
+let flag = false
 
 async function  RenderTarjetas(){
   contenedorPadre.innerHTML = ''
@@ -76,7 +76,8 @@ async function  RenderTarjetas(){
         const divPhoto = document.createElement('div')
         const img = document.createElement('img')
         const h2nombre =document.createElement('h2')
-
+        
+      
         //asingacion de clases
         div.setAttribute('class','contenedorTarjetaMinimal')
         divPhoto.setAttribute('class','photoEnfermedadMinimal')
@@ -89,13 +90,15 @@ async function  RenderTarjetas(){
         h2nombre.appendChild(nombreText)
         divPhoto.appendChild(h2nombre)
         div.appendChild(divPhoto)
-        div.onclick = () =>  expandir(enfermedad)
+        div.onclick = () =>  detalle(enfermedad)
         arr.push(div)
       })
       contenedorPadre.append(...arr)
   }
 
-  function expandir(enfermedad){
+
+
+  function detalle(enfermedad){
     //limpiar
     contenedorPadre.innerHTML =''
 
@@ -105,21 +108,59 @@ async function  RenderTarjetas(){
     const imgDetalle = document.createElement('img')
     const h2Detalle = document.createElement('h2')
     const definicionDetalle = document.createElement('div')
+    const pdefinicion = document.createElement('p')
+    const contenedorSintomas = document.createElement('div')
+    const h2sintomas = document.createElement('h2')
+    const psintomas = document.createElement('p')
+    const divbutton = document.createElement('div')
+    const btnSintomas = document.createElement('button')
+    const volverDeinicion = document.createElement('a')
+    const btnclose = document.createElement('button')
+    const i = document.createElement('i')
+
+
 
     //asignacion de clases
     contenedorPadre.setAttribute('class', 'contenedorTarjetaDetalle')
     contenedorDetalle.setAttribute('class' , 'tarjetaDetalle')
     imagenDetalle.setAttribute('class', 'imagenDetalle')
+    definicionDetalle.setAttribute('class', 'definicionDetalle')
+    divbutton.setAttribute('class', 'contenedorBtn')
+    btnSintomas.setAttribute('class', 'button')
+    contenedorSintomas.setAttribute('class', 'sintomas')
+    btnclose.setAttribute('class', 'btnClose')
+    i.setAttribute('class', 'fa-solid fa-xmark fa-2xl')
 
     //informacion de firebase
     imgDetalle.setAttribute('src', enfermedad.img)
     h2Detalle.innerText = enfermedad.nombre
+    h2sintomas.innerText = 'síntomas o consideraciones'
+    const pDtext = document.createTextNode(enfermedad.definicion)
+    btnSintomas.innerText = 'síntomas o consideraciones'
+    const psintomasText = document.createTextNode(enfermedad.sintomas)
+    volverDeinicion.innerText = 'Volver a definicion'
 
+    btnclose.appendChild(i)
+    psintomas.appendChild(psintomasText)
+    psintomas.appendChild(volverDeinicion)
+    contenedorSintomas.appendChild(h2sintomas)
+    contenedorSintomas.appendChild(psintomas)
+    divbutton.appendChild(btnSintomas)
+    pdefinicion.appendChild(pDtext)
+    definicionDetalle.appendChild(pdefinicion)
+    imagenDetalle.appendChild(btnclose)
     imagenDetalle.appendChild(imgDetalle)
     imagenDetalle.appendChild(h2Detalle)
     contenedorDetalle.appendChild(imagenDetalle)
+    contenedorDetalle.appendChild(definicionDetalle)
+    contenedorDetalle.appendChild(divbutton)
+    contenedorDetalle.appendChild(contenedorSintomas)
     contenedorPadre.appendChild(contenedorDetalle)
     console.log('hola')
+
+    btnSintomas.onclick = () => mostrarSintomas()
+    volverDeinicion.onclick = () => backDefinicion()
+    btnclose.onclick = () => backInicio()
   }
 
   function backInicio() {
@@ -127,34 +168,27 @@ async function  RenderTarjetas(){
       contenedorPadre.innerHTML = ''
       contenedorPadre.setAttribute('class','contenedor-Padre')
       RenderTarjetas()
-    
   }
 
 
-
-  let flag = false
-
-  function mostrar(contenedor){
-    const divDefinicion = document.querySelector('.definicion-expandir')
+  function mostrarSintomas(){
+    const sintomas = document.querySelector('.sintomas')
+    const btnSintomas = document.querySelector('.button')
+    const definicionDetalle= document.querySelector('.definicionDetalle')
     const btn = document.querySelector('.button')
-    divDefinicion.style.display = 'none';
-    flag = !flag
-    if(flag){
-      contenedor.style.display = 'block'
-      btn.style.display = 'none'
-    }else{
-      contenedor.style.display = 'none'
-    }
+    definicionDetalle.style.display = 'none';
+    btnSintomas.style.display = 'none';
+    sintomas.style.display = 'block';
   }
 
-  function backDefinicion(contenedor){
-    const def = document.querySelector('.definicion-expandir')
-    const btn = document.querySelector('.button')
-    
-    contenedor.style.display = 'none'
-    def.style.display = 'block'
-    btn.style.display = 'block'
-    flag =!flag
+  function backDefinicion(){
+    const sintomas = document.querySelector('.sintomas')
+    const definicionDetalle= document.querySelector('.definicionDetalle')
+    const btnSintomas = document.querySelector('.button')
+
+    sintomas.style.display = 'none';
+    definicionDetalle.style.display = 'block';
+    btnSintomas.style.display = 'block';
   }
 
 

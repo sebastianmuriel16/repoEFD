@@ -4,17 +4,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .contenedor-Padre{
-    margin-top: 8px;
+    margin: 8px 4px 4px 4px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 200px 200px;
-    grid-column-gap: 4px;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 8px;
 }
 
-.contenedor-Tarjeta{
+.contenedorTarjetaMinimal{
     display: flex;
     flex-direction: column;
     width: 200px;
@@ -23,20 +24,23 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.contendorPhoto{
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-}
-
-.photo-Enfermedad{
-    position: relative;
+.photoEnfermedadMinimal{
     width: 100%;
     object-fit: cover;
 }
+
+.photoEnfermedadMinimal img{
+    width: 100%;
+}
+.photoEnfermedadMinimal h2{
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+
 .btnClose{
-    display: none;
     position: absolute;
+    display: none;
     top: 12px; 
     left: 6px; 
     padding: 5px;
@@ -48,15 +52,6 @@
     border: none;
     z-index: 1;
 }
-
-.photo-Enfermedad img{
-    width: 100%;
-}
-.photo-Enfermedad h2{
-    font-size: 16px;
-    margin-top: 5px;
-}
-
 .invisible{
     display: none;
     padding: 0px 12px 6px 12px;
@@ -90,30 +85,31 @@
 
 /* expandir */
 
-.contenedor-Tarjeta-Expandir{
+.contenedorTarjetaDetallle{
     font-family: 'Roboto', sans-serif;
-    margin-top: 12px;
     display: grid;
+    grid-template-columns: 1fr;
     justify-content: center;
     gap: 6px;
 }
 
 
-.tarjeta-expandir{
+.tarjetaDetalle{
+    margin: 8px 4px 4px 4px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 8px;
     overflow: hidden;
-    width: 400px;
+
 }
 
-.contedor-img-expandir{
+.imagenDetalle{
     width: 100%;
 }
 
-.contedor-img-expandir img{
+.imagenDetalle img{
     width: 100%;
 }
-.contedor-img-expandir h2{
+.imagenDetalle h2{
     font-size: 16px;
     margin-top: 5px;
     padding: 0 0 0 12px;

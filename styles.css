@@ -7,6 +7,7 @@
 }
 
 .contenedor-Padre{
+    margin-top: 8px;
     display: grid;
     justify-content: center;
     grid-template-columns: 200px 200px;
@@ -22,9 +23,30 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.contendorPhoto{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
 .photo-Enfermedad{
+    position: relative;
     width: 100%;
     object-fit: cover;
+}
+.btnClose{
+    display: none;
+    position: absolute;
+    top: 12px; 
+    left: 6px; 
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;  
+    opacity: .5;
+    color: #fff;
+    border: none;
+    z-index: 1;
 }
 
 .photo-Enfermedad img{
@@ -39,11 +61,20 @@
     display: none;
     padding: 0px 12px 6px 12px;
 }
+.invisible h2{
+    font-size: 16px;
+    padding: 0px;
+}
+
+.invisible a{
+    color: #016DD9;
+}
 
 .contenedor-btn{
     display: flex;
     justify-content: center;
 }
+
 
 .button {
     width: 16em;
@@ -54,6 +85,7 @@
     color: #ffffff;
     font-family: inherit;
     font-weight: 500;
+    margin: 6px 0px 6px 0px;
    }
 
 /* expandir */
@@ -65,6 +97,7 @@
     justify-content: center;
     gap: 6px;
 }
+
 
 .tarjeta-expandir{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

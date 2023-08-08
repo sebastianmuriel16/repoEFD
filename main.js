@@ -10,66 +10,6 @@ async function  RenderTarjetas(){
       const arr = []
       queryEnfermedad.forEach((Enfermedad) =>{ 
         const enfermedad = Enfermedad.data()
-        // //creando los elementos html necesarios
-        // const enfermedad = Enfermedad.data()
-        // const div = document.createElement('div')
-        // const divPhoto = document.createElement('div')
-        // const divSintomas = document.createElement('div')
-        // const divDefinicion = document.createElement('div')
-        // const divbutton = document.createElement('div')
-        // const contenedorPhoto = document.createElement('div')
-        // const h2 =document.createElement('h2')
-        // const h2stms =document.createElement('h2')
-        // const img = document.createElement('img')
-        // const p = document.createElement('p')
-        // const btn = document.createElement('button')
-        // const btnclose = document.createElement('button')
-        // const volverDeinicion = document.createElement('a')
-        // const i = document.createElement('i')
-
-        // //asignado las clases correspondientes
-        // i.setAttribute('class', 'fa-solid fa-xmark fa-2xl')
-        // contenedorPhoto.setAttribute('class', '.contenedorPhoto')
-        // divbutton.setAttribute('class', 'invisible')
-        // divSintomas.setAttribute('class', 'invisible')
-        // div.setAttribute('class', 'contenedor-Tarjeta')
-        // divPhoto.setAttribute('class', 'photo-Enfermedad')
-        // divDefinicion.setAttribute('class', 'invisible')
-        // btn.setAttribute('class', 'button')
-        // btnclose.setAttribute('class', 'btnClose')
-        // img.setAttribute('src', enfermedad.img)
-        // const pText = document.createTextNode(enfermedad.definicion)
-        // const h2Text =document.createTextNode(enfermedad.nombre)
-        // const p2Text = document.createTextNode(enfermedad.sintomas)
-        // const btnText = document.createTextNode('síntomas o consideraciones')
-
-        // h2stms.innerText = 'síntomas o consideraciones'
-        // volverDeinicion.innerText = 'Volver a definicion'
-
-
-        // btn.appendChild(btnText)
-        // btnclose.appendChild(i)
-        // p.appendChild(pText)
-        // h2.appendChild(h2Text)
-        // divPhoto.appendChild(btnclose)
-        // divPhoto.appendChild(img)
-        // divPhoto.appendChild(h2)
-        // divSintomas.appendChild(h2stms)
-        // divSintomas.appendChild(p2Text)
-        // divSintomas.appendChild(volverDeinicion)
-        // divDefinicion.appendChild(p)
-        // divbutton.appendChild(btn)
-        // div.appendChild(divPhoto)
-        // div.appendChild(divDefinicion)
-        // div.appendChild(divbutton)
-        // div.appendChild(divSintomas)
-
-        
-        // volverDeinicion.onclick = () => backDefinicion(divSintomas)
-        // btnclose.onclick =() => backInicio()
-        // btn.onclick = () => mostrar(divSintomas)
-        // div.onclick = () => expandir(div)
-        // arr.push(div)
 
         //contenedores
         const div = document.createElement('div')
@@ -115,8 +55,9 @@ async function  RenderTarjetas(){
     const divbutton = document.createElement('div')
     const btnSintomas = document.createElement('button')
     const volverDeinicion = document.createElement('a')
+    const divBtnClose = document.createElement('div')
     const btnclose = document.createElement('button')
-    const i = document.createElement('i')
+    //const i = document.createElement('i')
 
 
 
@@ -128,8 +69,9 @@ async function  RenderTarjetas(){
     divbutton.setAttribute('class', 'contenedorBtn')
     btnSintomas.setAttribute('class', 'button')
     contenedorSintomas.setAttribute('class', 'sintomas')
+    divBtnClose.setAttribute('class', 'divBtnClose')
     btnclose.setAttribute('class', 'btnClose')
-    i.setAttribute('class', 'fa-solid fa-xmark fa-2xl')
+   // i.setAttribute('class', 'fa-solid fa-xmark fa-2xl')
 
     //informacion de firebase
     imgDetalle.setAttribute('src', enfermedad.img)
@@ -139,16 +81,17 @@ async function  RenderTarjetas(){
     btnSintomas.innerText = 'síntomas o consideraciones'
     const psintomasText = document.createTextNode(enfermedad.sintomas)
     volverDeinicion.innerText = 'Volver a definicion'
+    btnclose.innerText = 'Volver '
 
-    btnclose.appendChild(i)
+    //btnclose.appendChild(i)
     psintomas.appendChild(psintomasText)
     psintomas.appendChild(volverDeinicion)
     contenedorSintomas.appendChild(h2sintomas)
     contenedorSintomas.appendChild(psintomas)
     divbutton.appendChild(btnSintomas)
+    divBtnClose.appendChild(btnclose)
     pdefinicion.appendChild(pDtext)
     definicionDetalle.appendChild(pdefinicion)
-    imagenDetalle.appendChild(btnclose)
     imagenDetalle.appendChild(imgDetalle)
     imagenDetalle.appendChild(h2Detalle)
     contenedorDetalle.appendChild(imagenDetalle)
@@ -156,7 +99,8 @@ async function  RenderTarjetas(){
     contenedorDetalle.appendChild(divbutton)
     contenedorDetalle.appendChild(contenedorSintomas)
     contenedorPadre.appendChild(contenedorDetalle)
-    console.log('hola')
+    contenedorPadre.appendChild(divBtnClose)
+
 
     btnSintomas.onclick = () => mostrarSintomas()
     volverDeinicion.onclick = () => backDefinicion()

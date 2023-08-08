@@ -81,19 +81,28 @@
     overflow: hidden;
 }
 
+.divBtnClose{
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .btnClose{
-    position: absolute;
-    top: 8px; 
-    right: 5px; 
-    padding: 5px;
-    width: 40px;
-    height: 40px;
-    background-color: #000;  
-    opacity: .5;
-    color: #fff;
+    width: 80%;
+    font-family: PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+    font-size: 1rem;
+    align-items: center;
+    height: 48px;
+    border-radius: 0.4rem;
+    font-weight: 800;
+    padding: 0 1.2rem;
+    color: #ddd;
     border: none;
-    border-radius:  0px 12px 0px 0px;
-    z-index: 1;
+    box-shadow: 0 .5rem 1rem rgba(143, 142, 142, 0.15)!important;
+    background: #016DD9 ;
 }
 
 .imagenDetalle img{
